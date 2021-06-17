@@ -9,22 +9,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class AtivaçãoCliente {
     private NotificadorEmail notificador;
-
-    //@Autowired
-    // public AtivaçãoCliente(NotificadorEmail notificador) {
-    //
-    //     this.notificador = notificador;
-    // }
-    // public AtivaçãoCliente(String qualquer){
-    //
-    //   }
-
-    public void ativar(Cliente cliente){
+    public void ativar(Cliente cliente) {
         cliente.ativar();
-        notificador.notificador(cliente, "Seu cadastro no sistema esta ativo");
-    }
-    @Autowired
-    public void setNotificador(NotificadorEmail notificador) {
-        this.notificador = notificador;
+        if (notificador != null){
+            notificador.notificador(cliente,"Seu cadaswtro no sistema esta ativo");
+        }
+        else {
+            System.out.println("Não existe notificador , mas cliente foi ativo ");
+        }
     }
 }

@@ -13,7 +13,7 @@ public class NotificadorEmail implements Notificador {
         System.out.println("NotificaçãoEmail");
     }
     @Override
-    public void notificar(Cliente cliente, String menssagem){
+    public void notificador(Cliente cliente, String menssagem){
 
         if (this.caixaAlta){
             menssagem =  menssagem.toUpperCase();

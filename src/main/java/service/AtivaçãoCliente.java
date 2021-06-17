@@ -2,9 +2,7 @@ package service;
 
 import modelo.Cliente;
 import notificacao.NotificadorEmail;
-import org.springframework.stereotype.Component;
 
-@Component
 public class AtivaçãoCliente {
     private NotificadorEmail notificador;
 
@@ -14,7 +12,7 @@ public class AtivaçãoCliente {
 
     public void ativar(Cliente cliente){
         cliente.ativar();
-        notificador.notificar(cliente, "Seu cadastro no sistema esta ativo");
+        notificador.notificador(cliente, "Seu cadastro no sistema esta ativo");
 
 
     }

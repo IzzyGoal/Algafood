@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import service.AtivaçãoCliente;
 
-@Configuration
+//@Configuration
 public class AlgaConfig {
 
     @Bean

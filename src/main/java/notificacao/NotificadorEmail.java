@@ -1,8 +1,10 @@
 package notificacao;
 
 import modelo.Cliente;
+
 import org.springframework.stereotype.Component;
 
+@NivelDeUrgencia(value = NivelUrgencia.URGENTE)
 @Component
 public class NotificadorEmail implements Notificador {
 

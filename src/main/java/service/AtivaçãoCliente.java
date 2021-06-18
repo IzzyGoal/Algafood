@@ -1,17 +1,30 @@
 package service;
 
 import modelo.Cliente;
-import notificacao.Notificador;
+import notificacao.NivelDeUrgencia;
+import notificacao.NivelUrgencia;
 import notificacao.NotificadorEmail;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 @Component
 public class AtivaçãoCliente {
 
-    @Qualifier("email")
+    @NivelDeUrgencia(NivelUrgencia.URGENTE)
+    @Autowired
     private NotificadorEmail notificador;
+
+    @PostConstruct
+    public void init(){
+        System.out.println("INIT");
+    }
+    @PreDestroy
+    public void destroy(){
+        System.out.println("DESTROY");
+    }
     public void ativar(Cliente cliente) {
         cliente.ativar();
         if (notificador != null){
